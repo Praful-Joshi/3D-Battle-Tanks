@@ -6,6 +6,6 @@ public class TankView : MonoBehaviour
 {
     private void Start()
     {
-        Debug.Log("Game Started");
+        Debug.Log("Game Started!!");
     }
 }
