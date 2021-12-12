@@ -11,6 +11,7 @@ public class PlayerTank : GenericSingleton<PlayerTank>
     public AudioClip m_EngineIdling;
     public AudioClip m_EngineDriving;
     public float m_PitchRange = 0.2f;
+    public Joystick joystick;
 
     private string m_MovementAxisName;
     private string m_TurnAxisName;
@@ -46,8 +47,8 @@ public class PlayerTank : GenericSingleton<PlayerTank>
 
     private void Update()
     {
-        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
-        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
+        m_MovementInputValue = joystick.Vertical;
+        m_TurnInputValue = joystick.Horizontal;
 
         EngineAudio();
     }
