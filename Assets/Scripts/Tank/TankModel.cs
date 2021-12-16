@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class TankModel
 {
-    private int speed { get; }
-    private float health { get; }
-
-    public TankModel(int speed, float health)
+    internal int health { get; }
+    internal int damage { get; }
+    internal int moveSpeed { get; }
+    internal TankTypes tankType { get; }
+    
+    public TankModel(TankScriptableObject tankSO)
     {
-        this.speed = speed;
-        this.health = health;
+        health = tankSO.health;
+        damage = tankSO.damage;
+        moveSpeed = tankSO.moveSpeed;
+        tankType = tankSO.tankType;
     }
+
 }

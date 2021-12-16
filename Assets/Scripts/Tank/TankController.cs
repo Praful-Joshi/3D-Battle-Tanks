@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TankController
 {
-    private TankModel tankModel { get; }
-    private TankView tankView { get; }
+    //other scripts declaration
+    private TankModel tankModel;
+    private TankView tankView;
 
     public TankController(TankModel tankModel, TankView tankView)
     {
