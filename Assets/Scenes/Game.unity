@@ -125,93 +125,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &461948127
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 461948129, guid: 61c30be973435e144af47b1220340f86, type: 3}
-      propertyPath: joystick
-      value: 
-      objectReference: {fileID: 1689369904}
-    - target: {fileID: 461948129, guid: 61c30be973435e144af47b1220340f86, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551792517, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2178052632551948901, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_Name
-      value: Tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 2672401336477467328, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: joystick
-      value: 
-      objectReference: {fileID: 1689369904}
-    - target: {fileID: 2672401336477467328, guid: 61c30be973435e144af47b1220340f86,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 61c30be973435e144af47b1220340f86, type: 3}
 --- !u!1 &545005525
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +225,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &896925749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 1689369902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1158996493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -823,18 +748,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1689369902}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1689369904 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
-    type: 3}
-  m_PrefabInstance: {fileID: 1689369902}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1771596986
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,11 +804,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897083980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000017881393, y: 1.2173446, z: -0.07388234}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1897083982
 MonoBehaviour:
@@ -909,3 +822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5130d67167d1f854094125ec84860ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tankSO:
+  - {fileID: 11400000, guid: 9982c87970945d840b83259304795236, type: 2}
+  - {fileID: 11400000, guid: 5802784fd7b25a845a9e6e77c406776e, type: 2}
+  - {fileID: 11400000, guid: 6283cc906d5ac5a4e8efc8836fe07761, type: 2}
+  joystick: {fileID: 896925749}

@@ -8,8 +8,13 @@ public class TankService : GenericSingleton<TankService>
     private TankModel model;
     private TankController tank;
     private TankView view;
-    private TankTypes tankTypes;
-    private TankScriptableObject[] tankConfigurations;
+    public TankScriptableObject[] tankSO;
+
+    //component declaration
+    public Joystick joystick;
+
+    //declaring variables
+    private TankScriptableObject tankScriptableObject;
 
     protected override void Awake()
     {
@@ -19,13 +24,25 @@ public class TankService : GenericSingleton<TankService>
     private void Start()
     {
         createNewTank();
+        tank.startTankController();
     }
 
-    private TankController createNewTank()
+    private void Update()
     {
-        TankScriptableObject tankScriptableObject = tankConfigurations[Random.Range(0, 3)];
+        tank.updateTankController();
+    }
+
+    private void FixedUpdate()
+    {
+        tank.fixedUpdateTankController();
+    }
+
+    private void createNewTank()
+    {
+        tankScriptableObject = tankSO[Random.Range(0, 3)];
         model = new TankModel(tankScriptableObject);
+        view = tankScriptableObject.tankPrefab.GetComponent<TankView>();
         tank = new TankController(model, view);
-        return tank;
+        Debug.Log(model.color + " tank created");
     }
 }

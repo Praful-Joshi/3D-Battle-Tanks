@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afe38f3d62739b441a378607819abc2e, type: 3}
-  m_Name: Tank Scriptable Objects 2
+  m_Name: Red Tank SO
   m_EditorClassIdentifier: 
-  tankType: 3
-  TankName: Blue Tank
+  tankType: 1
   health: 100
-  damage: 20
-  moveSpeed: 6
+  damage: 30
+  moveSpeed: 12
+  color: Red
+  tankPrefab: {fileID: 2178052632551948901, guid: 61c30be973435e144af47b1220340f86,
+    type: 3}
