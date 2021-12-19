@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class TankView : MonoBehaviour
 {
+    //other script declaration
+    private TankModel tankModel;
+    
     private void Start()
     {
-        Debug.Log("Game Started!!");
+        
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 }

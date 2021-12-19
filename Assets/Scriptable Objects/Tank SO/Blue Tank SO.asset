@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afe38f3d62739b441a378607819abc2e, type: 3}
+  m_Name: Blue Tank SO
+  m_EditorClassIdentifier: 
+  tankType: 3
+  health: 100
+  damage: 10
+  moveSpeed: 8
+  color: Blue
+  tankPrefab: {fileID: 2178052632551948901, guid: 61c30be973435e144af47b1220340f86,
+    type: 3}
