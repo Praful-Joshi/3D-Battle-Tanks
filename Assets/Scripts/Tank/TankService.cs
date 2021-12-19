@@ -11,7 +11,7 @@ public class TankService : GenericSingleton<TankService>
     public TankScriptableObject[] tankSO;
 
     //component declaration
-    public Joystick joystick;
+    public Joystick leftJoystick;
 
     //declaring variables
     private TankScriptableObject tankScriptableObject;
@@ -25,6 +25,7 @@ public class TankService : GenericSingleton<TankService>
     {
         createNewTank();
         tank.startTankController();
+        setPlayerTankControllerRef();
     }
 
     private void Update()
@@ -44,5 +45,13 @@ public class TankService : GenericSingleton<TankService>
         view = tankScriptableObject.tankPrefab.GetComponent<TankView>();
         tank = new TankController(model, view);
         Debug.Log(model.color + " tank created");
+    }
+
+    private void setPlayerTankControllerRef()
+    {
+        if(tank != null)
+        {
+            tank.setJoystickRef(leftJoystick);
+        }
     }
 }

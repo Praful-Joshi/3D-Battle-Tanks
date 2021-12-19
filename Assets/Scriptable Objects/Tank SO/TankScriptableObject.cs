@@ -7,7 +7,8 @@ public class TankScriptableObject : ScriptableObject
     public TankTypes tankType;
     public int health;
     public int damage;
-    public int moveSpeed;
+    public float moveSpeed;
+    public float turnSpeed;
     public string color;
     public GameObject tankPrefab;
 }

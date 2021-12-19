@@ -212,7 +212,6 @@ GameObject:
   - component: {fileID: 4264831397457934311}
   - component: {fileID: 4264831397457934310}
   - component: {fileID: 4264831397457934309}
-  - component: {fileID: 1194455087}
   m_Layer: 3
   m_Name: Tank
   m_TagString: Untagged
@@ -458,25 +457,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1194455087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4264831397457834122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaaf2ae47efc940469ca69517425b9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerNumber: 1
-  m_Speed: 12
-  m_TurnSpeed: 180
-  m_MovementAudio: {fileID: 4264831397457934309}
-  m_EngineIdling: {fileID: 8300000, guid: 4932ab25b84dd7649b80af68a9660ddc, type: 3}
-  m_EngineDriving: {fileID: 8300000, guid: d7ca9fb5aa30155449192b23d7fb3336, type: 3}
-  m_PitchRange: 0.2
 --- !u!1 &4264831397457834124
 GameObject:
   m_ObjectHideFlags: 0

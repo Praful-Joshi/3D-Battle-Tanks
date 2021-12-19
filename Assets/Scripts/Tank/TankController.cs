@@ -8,7 +8,7 @@ public class TankController
     private TankService service;
 
     //component declaration
-    private Joystick joystick;
+    private Joystick leftJoystick;
     private Rigidbody rb;
 
     //variable declaration
@@ -23,8 +23,7 @@ public class TankController
 
     internal void startTankController()
     {
-        rb = model.tankPrefab.GetComponent<Rigidbody>();
-        joystick = service.joystick;
+        rb = view.GetComponent<Rigidbody>();
     }
 
     internal void updateTankController()
@@ -38,21 +37,26 @@ public class TankController
         turn();
     }
 
+    internal void setJoystickRef(Joystick leftJoystick)
+    {
+        this.leftJoystick = leftJoystick;
+    }
+
     private void getInput()
     {
-        movementInput = joystick.Vertical;
-        turnInput = joystick.Horizontal;
+        movementInput = leftJoystick.Vertical;
+        turnInput = leftJoystick.Horizontal;
     }
 
     private void move()
     {
-        Vector3 movement = model.tankPrefab.transform.forward * movementInput * model.moveSpeed * Time.deltaTime;
+        Vector3 movement = view.transform.forward * movementInput * model.moveSpeed * Time.deltaTime;
         rb.MovePosition(rb.position + movement);
     }
 
     private void turn()
     {
-        float turn = turnInput * model.moveSpeed * Time.deltaTime;
+        float turn = turnInput * model.turnSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         rb.MoveRotation(rb.rotation * turnRotation);
     }

@@ -15,7 +15,8 @@ MonoBehaviour:
   tankType: 3
   health: 100
   damage: 10
-  moveSpeed: 8
+  moveSpeed: 12
+  turnSpeed: 180
   color: Blue
   tankPrefab: {fileID: 2178052632551948901, guid: 61c30be973435e144af47b1220340f86,
     type: 3}
