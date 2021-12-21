@@ -10,5 +10,5 @@ public class TankScriptableObject : ScriptableObject
     public float moveSpeed;
     public float turnSpeed;
     public string color;
-    public GameObject tankPrefab;
+    /*public GameObject tankPrefab;*/
 }

@@ -5,13 +5,15 @@ using UnityEngine;
 public class TankService : GenericSingleton<TankService>
 {
     //other scripts declaration
-    private TankModel model;
+    internal TankModel model;
     private TankController tank;
     private TankView view;
     public TankScriptableObject[] tankSO;
+    private CameraControl cameraControl;
 
     //component declaration
     public Joystick leftJoystick;
+    public GameObject tankPrefab;
 
     //declaring variables
     private TankScriptableObject tankScriptableObject;
@@ -19,13 +21,14 @@ public class TankService : GenericSingleton<TankService>
     protected override void Awake()
     {
         base.Awake();
+        createNewTank();
     }
 
     private void Start()
     {
-        createNewTank();
         tank.startTankController();
         setPlayerTankControllerRef();
+        tankPrefab.SetActive(true);
     }
 
     private void Update()
@@ -42,7 +45,7 @@ public class TankService : GenericSingleton<TankService>
     {
         tankScriptableObject = tankSO[Random.Range(0, 3)];
         model = new TankModel(tankScriptableObject);
-        view = tankScriptableObject.tankPrefab.GetComponent<TankView>();
+        view = tankPrefab.GetComponent<TankView>();
         tank = new TankController(model, view);
         Debug.Log(model.color + " tank created");
     }

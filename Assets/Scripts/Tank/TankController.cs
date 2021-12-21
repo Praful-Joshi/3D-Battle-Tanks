@@ -18,7 +18,7 @@ public class TankController
     public TankController(TankModel tankModel, TankView tankView)
     {
         model = tankModel;
-        view = GameObject.Instantiate<TankView>(tankView);
+        view = tankView;
     }
 
     internal void startTankController()

@@ -10,7 +10,7 @@ public class TankModel
     internal float turnSpeed { get; }
     internal string color { get; }
     internal TankTypes tankType { get; }
-    internal GameObject tankPrefab;
+    /*internal GameObject tankPrefab;*/
     
     public TankModel(TankScriptableObject tankSO)
     {
@@ -20,6 +20,6 @@ public class TankModel
         turnSpeed = tankSO.turnSpeed;
         color = tankSO.color;
         tankType = tankSO.tankType;
-        tankPrefab = tankSO.tankPrefab;
+        /*tankPrefab = tankSO.tankPrefab;*/
     }
 }
