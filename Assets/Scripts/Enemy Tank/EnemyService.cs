@@ -10,36 +10,29 @@ public class EnemyService : GenericSingleton<EnemyService>
     private EnemyView enemyView;
 
     //component declaration
-    public GameObject enemyTankPrefab;
-    public GameObject[] spawnLocations;
-    private Vector3 spawnLocation;
+    private GameObject enemy;
 
     //variable declaration
     public EnemySO[] enemySO;
     private EnemySO enemyScriptableObject;
 
-
     protected override void Awake()
     {
         base.Awake();
         createNewEnemyTank();
-        spawnEnemyPrefab();
+        enemyController.controllerAwake();
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void createNewEnemyTank()
     {
         enemyScriptableObject = enemySO[0];
         enemyModel = new EnemyModel(enemyScriptableObject);
-        enemyView = enemyTankPrefab.GetComponent<EnemyView>();
+        enemyView = enemyModel.enemyPrefab.GetComponent<EnemyView>();
         enemyController = new EnemyController(enemyModel, enemyView);
-    }
-
-    private void spawnEnemyPrefab()
-    {
-        float x = spawnLocations[Random.Range(0, 5)].transform.position.x;
-        float y = spawnLocations[Random.Range(0, 5)].transform.position.y;
-        float z = spawnLocations[Random.Range(0, 5)].transform.position.z;
-        spawnLocation = new Vector3(x,y,z);
-        Instantiate(enemyTankPrefab, spawnLocation, Quaternion.identity);
     }
 }

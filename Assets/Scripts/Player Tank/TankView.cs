@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class TankView : MonoBehaviour
 {
-    //other script declaration
-    private TankModel tankModel;
-    
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
         

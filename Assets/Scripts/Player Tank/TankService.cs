@@ -13,22 +13,20 @@ public class TankService : GenericSingleton<TankService>
 
     //component declaration
     public Joystick leftJoystick;
-    public GameObject tankPrefab;
 
     //declaring variables
     private TankScriptableObject tankScriptableObject;
 
     protected override void Awake()
     {
-        base.Awake();
-        createNewTank();
+        base.Awake();                                                           //singleton implementation    
+        createNewTank();                                                        //creates new tank
     }
 
     private void Start()
     {
+        setControllerJoystickRef();                                           //passing joystick reference to the controller
         tank.startTankController();
-        setPlayerTankControllerRef();
-        tankPrefab.SetActive(true);
     }
 
     private void Update()
@@ -45,16 +43,21 @@ public class TankService : GenericSingleton<TankService>
     {
         tankScriptableObject = tankSO[Random.Range(0, 3)];
         model = new TankModel(tankScriptableObject);
-        view = tankPrefab.GetComponent<TankView>();
+        view = model.tankPrefab.GetComponent<TankView>();
         tank = new TankController(model, view);
         Debug.Log(model.color + " tank created");
     }
 
-    private void setPlayerTankControllerRef()
+    private void setControllerJoystickRef()
     {
         if(tank != null)
         {
             tank.setJoystickRef(leftJoystick);
         }
+    }
+
+    public GameObject getTankControllerRef()
+    {
+        return tank.tank;
     }
 }

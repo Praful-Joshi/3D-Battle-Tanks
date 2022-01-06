@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd3b7af5d292c149b52852e2fee8d9d, type: 3}
   m_Name: Black Enemy SO
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 3738493640180326074, guid: bb0b525fb0c44c249a1f16c8e9a1d0be,
+    type: 3}
   health: 100
   damage: 20
   moveSpeed: 12
   turnSpeed: 180
   color: Black
+  spawnLocations:
+  - {fileID: 5703364098325365952, guid: 492c6675bc9f66c43b6d4991687d1657, type: 3}
+  - {fileID: 373949035341121240, guid: 6b18adf53e9319c4ca5936fa36433f77, type: 3}
+  - {fileID: 3510776893771173383, guid: f6d34531430b4de4c99cf89d01a18cc3, type: 3}
+  - {fileID: 1010677937612008741, guid: b408fe2f4debe2a4ea18e64a000fb4aa, type: 3}
+  - {fileID: 8147952344347915786, guid: 2b73d345b72a69841bee8902d6506db6, type: 3}

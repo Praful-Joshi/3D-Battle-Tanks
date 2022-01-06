@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyView : MonoBehaviour
 {
+    public float lookRadius = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,11 @@ public class EnemyView : MonoBehaviour
     void Update()
     {
         
+    }
+
+    internal void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 }

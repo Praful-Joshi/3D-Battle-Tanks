@@ -1,11 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TankController
 {
     //other scripts declaration
-    private TankModel model;
-    private TankView view;
-    private TankService service;
+    internal TankModel model;
+    internal TankView view;
+    internal TankService service;
 
     //component declaration
     private Joystick leftJoystick;
@@ -14,11 +15,18 @@ public class TankController
     //variable declaration
     private float movementInput;
     private float turnInput;
+    internal GameObject tank;
 
     public TankController(TankModel tankModel, TankView tankView)
     {
         model = tankModel;
-        view = tankView;
+        view = GameObject.Instantiate<TankView>(tankView);
+        tank = view.gameObject;
+    }
+
+    internal void awakeTankController()
+    {
+
     }
 
     internal void startTankController()
@@ -36,6 +44,8 @@ public class TankController
         move();
         turn();
     }
+
+    //Tank Movement Code
 
     internal void setJoystickRef(Joystick leftJoystick)
     {
@@ -59,5 +69,14 @@ public class TankController
         float turn = turnInput * model.turnSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         rb.MoveRotation(rb.rotation * turnRotation);
+    }
+
+    //Tank Movement Code
+
+    //Tank Health Code
+
+    internal float setMaxHealth()
+    {
+        return model.health;
     }
 }

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe38f3d62739b441a378607819abc2e, type: 3}
   m_Name: Red Tank SO
   m_EditorClassIdentifier: 
+  tankPrefab: {fileID: 2206858623022641406, guid: e611f8521eae4ba4d9438884f7b5a2e8,
+    type: 3}
   tankType: 1
   health: 100
   damage: 30
   moveSpeed: 12
   turnSpeed: 180
   color: Red
-  tankPrefab: {fileID: 2178052632551948901, guid: 61c30be973435e144af47b1220340f86,
-    type: 3}

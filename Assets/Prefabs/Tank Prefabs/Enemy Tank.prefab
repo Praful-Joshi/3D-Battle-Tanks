@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 3738493640180292052}
   - component: {fileID: 3738493640180292055}
   - component: {fileID: 3738493640180326073}
+  - component: {fileID: 144407960}
   m_Layer: 6
   m_Name: Enemy Tank
   m_TagString: Untagged
@@ -276,6 +277,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9293a2ad02bac9344b12adae62cf659e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &144407960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738493640180326074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368972c163cadc54d9eafcc1be7d1d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyManager: {fileID: 0}
 --- !u!1 &3738493640180326076
 GameObject:
   m_ObjectHideFlags: 0
