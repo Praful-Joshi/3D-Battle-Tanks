@@ -16,15 +16,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        cameraControl = _camera.GetComponent<CameraControl>();
         tankService = tankManager.GetComponent<TankService>();
+        cameraControl = _camera.GetComponent<CameraControl>(); 
     }
 
     // Start is called before the first frame update
     void Start()
     {
         tank = tankService.getTankControllerRef();
-        Debug.Log(tank);
         cameraTargets.Add(tank.transform);
         cameraControl.m_Targets = cameraTargets;
     }

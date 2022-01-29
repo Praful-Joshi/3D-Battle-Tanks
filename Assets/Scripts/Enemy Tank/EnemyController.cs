@@ -8,11 +8,12 @@ public class EnemyController
     //other scripts declaration
     private EnemyModel enemyModel;
     private EnemyView enemyView;
-    private EnemyStateManager stateManager;
+    private EnemyAI enemyAI;
 
     private GameObject enemy;
+    private GameObject player;
 
-    private Vector3 spawnLocation;
+    internal Vector3 spawnLocation;
 
     public EnemyController(EnemyModel enemyModel, EnemyView enemyView)
     {
@@ -24,57 +25,11 @@ public class EnemyController
 
     internal void controllerAwake()
     {
-        stateManager = enemy.GetComponent<EnemyStateManager>();
-        setStateControllerRef();
+        enemyAI = enemy.GetComponent<EnemyAI>();
+        setEnemyAIControllerRef();
     }
 
     internal void controllerStart()
-    {
-        
-    }
-
-    internal void setPatrolPath()
-    {
-        Debug.Log("Patrol path set");
-    }
-    
-    internal void patrolOnPath()
-    {
-
-    }
-
-    internal bool isPlayerInSight()
-    {
-
-        return false;
-    }
-
-    internal void chaseTank()
-    {
-
-    }
-
-    internal bool checkAttackingDist()
-    {
-        return false;
-    }
-    
-    internal void attackPlayer()
-    {
-
-    }
-
-    internal bool isDead()
-    {
-        return false;
-    }
-
-    internal void deathParticleEffect()
-    {
-
-    }
-
-    internal void destroyEnemy()
     {
 
     }
@@ -87,12 +42,11 @@ public class EnemyController
         spawnLocation = new Vector3(x, y, z);
     }
 
-    private void setStateControllerRef()
+    private void setEnemyAIControllerRef()
     {
         if (this != null)
         {
-            stateManager.controller = this;
+            enemyAI.setControllerRef(this);
         }
     }
-
 }

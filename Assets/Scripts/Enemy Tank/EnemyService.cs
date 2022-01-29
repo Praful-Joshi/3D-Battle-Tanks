@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,31 +9,28 @@ public class EnemyService : GenericSingleton<EnemyService>
     internal EnemyModel enemyModel;
     private EnemyController enemyController;
     private EnemyView enemyView;
-
-    //component declaration
-    private GameObject enemy;
-
-    //variable declaration
-    public EnemySO[] enemySO;
     private EnemySO enemyScriptableObject;
-
+    public EnemySO[] enemySO;
+    private List<EnemyController> createdEnemyControllers;
+    
     protected override void Awake()
     {
         base.Awake();
         createNewEnemyTank();
-        enemyController.controllerAwake();
+        enemyController.controllerAwake();    
     }
 
     private void Start()
-    {
-        
+    { 
+        enemyController.controllerStart();
     }
 
-    private void createNewEnemyTank()
+    private EnemyController createNewEnemyTank()
     {
         enemyScriptableObject = enemySO[0];
         enemyModel = new EnemyModel(enemyScriptableObject);
         enemyView = enemyModel.enemyPrefab.GetComponent<EnemyView>();
         enemyController = new EnemyController(enemyModel, enemyView);
+        return enemyController;
     }
 }

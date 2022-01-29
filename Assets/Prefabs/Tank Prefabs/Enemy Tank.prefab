@@ -211,7 +211,8 @@ GameObject:
   - component: {fileID: 3738493640180292052}
   - component: {fileID: 3738493640180292055}
   - component: {fileID: 3738493640180326073}
-  - component: {fileID: 144407960}
+  - component: {fileID: -4885894985807717215}
+  - component: {fileID: 273959800}
   m_Layer: 6
   m_Name: Enemy Tank
   m_TagString: Untagged
@@ -248,7 +249,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
@@ -277,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9293a2ad02bac9344b12adae62cf659e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &144407960
+--- !u!114 &-4885894985807717215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,10 +287,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 3738493640180326074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 368972c163cadc54d9eafcc1be7d1d84, type: 3}
+  m_Script: {fileID: 11500000, guid: edd998ab3bacc05428fc17c7e27e3e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyManager: {fileID: 0}
+  destination: {fileID: 0}
+--- !u!195 &273959800
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738493640180326074}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.75
+  m_Speed: 6
+  m_Acceleration: 15
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3738493640180326076
 GameObject:
   m_ObjectHideFlags: 0

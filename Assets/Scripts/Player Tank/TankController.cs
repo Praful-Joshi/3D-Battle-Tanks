@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class TankController
 {
-    //other scripts declaration
+    //other scripts ref
     internal TankModel model;
     internal TankView view;
     internal TankService service;
 
-    //component declaration
+    //declaring components
     private Joystick leftJoystick;
     private Rigidbody rb;
+    internal GameObject tank;
 
-    //variable declaration
+    //declaring variables
     private float movementInput;
     private float turnInput;
-    internal GameObject tank;
 
     public TankController(TankModel tankModel, TankView tankView)
     {

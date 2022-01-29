@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class TankService : GenericSingleton<TankService>
 {
-    //other scripts declaration
+    //other scripts ref
     internal TankModel model;
-    private TankController tank;
+    internal static TankController tank;
     private TankView view;
     public TankScriptableObject[] tankSO;
-    private CameraControl cameraControl;
+    private TankScriptableObject tankScriptableObject;
 
-    //component declaration
+    //declaring components
     public Joystick leftJoystick;
 
     //declaring variables
-    private TankScriptableObject tankScriptableObject;
+    public static GameObject createdTank;
 
     protected override void Awake()
     {
