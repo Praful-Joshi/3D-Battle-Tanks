@@ -8,7 +8,6 @@ public class EnemyService : GenericSingleton<EnemyService>
     //other scripts declaration
     internal EnemyModel enemyModel;
     private EnemyController enemyController;
-    private EnemyView enemyView;
     private EnemySO enemyScriptableObject;
     public EnemySO[] enemySO;
     private List<EnemyController> createdEnemyControllers;
@@ -16,21 +15,21 @@ public class EnemyService : GenericSingleton<EnemyService>
     protected override void Awake()
     {
         base.Awake();
-        createNewEnemyTank();
-        enemyController.controllerAwake();    
+
+        createdEnemyControllers = new List<EnemyController>();
+        createdEnemyControllers.Add(createNewEnemyTank()); 
     }
 
     private void Start()
     { 
-        enemyController.controllerStart();
+
     }
 
     private EnemyController createNewEnemyTank()
     {
         enemyScriptableObject = enemySO[0];
         enemyModel = new EnemyModel(enemyScriptableObject);
-        enemyView = enemyModel.enemyPrefab.GetComponent<EnemyView>();
-        enemyController = new EnemyController(enemyModel, enemyView);
+        enemyController = new EnemyController(enemyModel);
         return enemyController;
     }
 }

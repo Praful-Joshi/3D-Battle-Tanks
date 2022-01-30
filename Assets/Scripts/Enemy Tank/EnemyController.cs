@@ -6,32 +6,23 @@ using UnityEngine.AI;
 public class EnemyController
 {
     //other scripts declaration
-    private EnemyModel enemyModel;
-    private EnemyView enemyView;
+    internal EnemyModel enemyModel;
     private EnemyAI enemyAI;
 
-    private GameObject enemy;
-    private GameObject player;
+    //declaring components
+    private GameObject enemyInstance;
 
+    //declaring variables
     internal Vector3 spawnLocation;
 
-    public EnemyController(EnemyModel enemyModel, EnemyView enemyView)
+    public EnemyController(EnemyModel enemyModel)
     {
         this.enemyModel = enemyModel;
         generateSpawnLocation();
-        this.enemyView = GameObject.Instantiate<EnemyView>(enemyView, spawnLocation, Quaternion.identity);
-        enemy = this.enemyView.gameObject;
-    }
+        enemyInstance = GameObject.Instantiate(enemyModel.enemyPrefab, spawnLocation, Quaternion.identity);
 
-    internal void controllerAwake()
-    {
-        enemyAI = enemy.GetComponent<EnemyAI>();
-        setEnemyAIControllerRef();
-    }
-
-    internal void controllerStart()
-    {
-
+        enemyAI = enemyInstance.GetComponent<EnemyAI>();
+        setEnemyAIref();
     }
 
     private void generateSpawnLocation()
@@ -42,9 +33,9 @@ public class EnemyController
         spawnLocation = new Vector3(x, y, z);
     }
 
-    private void setEnemyAIControllerRef()
+    private void setEnemyAIref()
     {
-        if (this != null)
+        if(this != null)
         {
             enemyAI.setControllerRef(this);
         }

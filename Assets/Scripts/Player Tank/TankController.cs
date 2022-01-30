@@ -11,7 +11,7 @@ public class TankController
     //declaring components
     private Joystick leftJoystick;
     private Rigidbody rb;
-    internal GameObject tank;
+    internal GameObject tankGameobject;
 
     //declaring variables
     private float movementInput;
@@ -21,7 +21,7 @@ public class TankController
     {
         model = tankModel;
         view = GameObject.Instantiate<TankView>(tankView);
-        tank = view.gameObject;
+        tankGameobject = view.gameObject;
     }
 
     internal void awakeTankController()

@@ -6,6 +6,12 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    private enum state
+    {
+        patrolling,
+        chasing,
+        dead
+    }
     //other script ref
     private EnemyController controller;
 
@@ -14,33 +20,96 @@ public class EnemyAI : MonoBehaviour
     private Transform target;
 
     //declaring variables
-    private float lookRadius = 10f;
-    public Transform destination;
+    private float distanceToPlayer, chasingDistance = 10f, attackingDistance = 5f;
+    private Transform destination;
+    private state currentState;
+    private Transform targetWaypoint;
+    private int waypointIndex;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
-        target = TankService.tank.tank.transform;
-        Debug.Log(target);
+        target = TankService.tankController.tankGameobject.transform;
 
-        setDestination();
+        distanceToPlayer = Vector3.Distance(this.transform.position, target.position);
+
+        //patrol initiation
+        waypointIndex = UnityEngine.Random.Range(0, 5);
+        targetWaypoint = controller.enemyModel.waypoints[waypointIndex].transform;
+        setDestination(targetWaypoint);
+
+        //state initiation
+        currentState = state.patrolling;
     }
 
     private void Update()
     {
-        float distance = Vector3.Distance(target.position, this.transform.position);
-
-        if(distance <= lookRadius)
+        switch(currentState)
         {
-            agent.SetDestination(target.position);
-            if(distance <= agent.stoppingDistance)
-            {
-                //attack the target
-                //face the target
-                faceTarget();
-            }
+            default:
+            case state.patrolling:
+                patrol();
+                break;
+            case state.chasing:
+                chase();
+                break;
+            case state.dead:
+                dead();
+                break;
         }
+        updateDistance();
+    }
+
+    private void updateDistance()
+    {
+        distanceToPlayer = Vector3.Distance(target.position, this.transform.position);
+    }
+
+    private void dead()
+    {
+        Debug.Log("enemy dead");
+    }
+
+    private void attack()
+    {
+        Debug.Log("enemy attacking");
+    }
+
+    private void chase()
+    {
+        Debug.Log("enemy chasing");
+        agent.SetDestination(target.position);
+        if(distanceToPlayer <= attackingDistance)
+        {
+            attack();
+            faceTarget();
+        }
+        if (distanceToPlayer > chasingDistance)
+        {
+            changeState(state.patrolling);
+        }
+    }
+
+    private void patrol()
+    {
+        Debug.Log("enemy patrolling");
+        setDestination(targetWaypoint);
+        if (Vector3.Distance(this.transform.position, targetWaypoint.position) < 1)
+        {
+            iterateWayPointIndex();
+            targetWaypoint = controller.enemyModel.waypoints[waypointIndex].transform;
+            setDestination(targetWaypoint);
+        }
+        if (distanceToPlayer <= chasingDistance)
+        {
+            changeState(state.chasing);
+        }
+    }
+
+    private void changeState(state newState)
+    {
+        currentState = newState;
     }
 
     private void faceTarget()
@@ -50,7 +119,7 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10);
     }
 
-    private void setDestination()
+    private void setDestination(Transform destination)
     {
         if(destination != null)
         {
@@ -58,14 +127,24 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    internal void setControllerRef(EnemyController controller)
+    private void iterateWayPointIndex()
     {
-        this.controller = controller;
+        waypointIndex++;
+        Debug.Log(waypointIndex);
+        if(waypointIndex == controller.enemyModel.waypoints.Count)
+        {
+            waypointIndex = 0;
+        }
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position, lookRadius);
+        Gizmos.DrawWireSphere(this.transform.position, chasingDistance);
+    }
+
+    internal void setControllerRef(EnemyController controller)
+    {
+        this.controller = controller;
     }
 }

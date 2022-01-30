@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class EnemyModel
 {
+    internal int id;
     internal GameObject enemyPrefab;
     internal int health { get; }
     internal int damage { get; }
     internal float moveSpeed { get; }
     internal float turnSpeed { get; }
-    internal string color { get; }
     internal List<Transform> spawnLocations { get; }
+    internal List<Transform> waypoints;
 
     public EnemyModel(EnemySO enemySO)
     {
+        id = enemySO.id;
         enemyPrefab = enemySO.enemyPrefab;
         health = enemySO.health;
         damage = enemySO.damage;
         moveSpeed = enemySO.moveSpeed;
         turnSpeed = enemySO.turnSpeed;
-        color = enemySO.color;
         spawnLocations = enemySO.spawnLocations;
+        waypoints = enemySO.waypoints;
     }
 }

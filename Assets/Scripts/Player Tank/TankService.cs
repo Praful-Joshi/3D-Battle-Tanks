@@ -6,7 +6,7 @@ public class TankService : GenericSingleton<TankService>
 {
     //other scripts ref
     internal TankModel model;
-    internal static TankController tank;
+    internal static TankController tankController;
     private TankView view;
     public TankScriptableObject[] tankSO;
     private TankScriptableObject tankScriptableObject;
@@ -26,17 +26,17 @@ public class TankService : GenericSingleton<TankService>
     private void Start()
     {
         setControllerJoystickRef();                                           //passing joystick reference to the controller
-        tank.startTankController();
+        tankController.startTankController();
     }
 
     private void Update()
     {
-        tank.updateTankController();
+        tankController.updateTankController();
     }
 
     private void FixedUpdate()
     {
-        tank.fixedUpdateTankController();
+        tankController.fixedUpdateTankController();
     }
 
     private void createNewTank()
@@ -44,20 +44,20 @@ public class TankService : GenericSingleton<TankService>
         tankScriptableObject = tankSO[Random.Range(0, 3)];
         model = new TankModel(tankScriptableObject);
         view = model.tankPrefab.GetComponent<TankView>();
-        tank = new TankController(model, view);
+        tankController = new TankController(model, view);
         Debug.Log(model.color + " tank created");
     }
 
     private void setControllerJoystickRef()
     {
-        if(tank != null)
+        if(tankController != null)
         {
-            tank.setJoystickRef(leftJoystick);
+            tankController.setJoystickRef(leftJoystick);
         }
     }
 
     public GameObject getTankControllerRef()
     {
-        return tank.tank;
+        return tankController.tankGameobject;
     }
 }

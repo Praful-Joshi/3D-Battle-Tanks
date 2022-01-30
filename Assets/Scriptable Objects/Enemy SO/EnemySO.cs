@@ -5,11 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Enemy Tank Scriptable Object", menuName = "Scriptable Objects/New Enemy Tank")]
 public class EnemySO : ScriptableObject
 {
+    public int id;
     public GameObject enemyPrefab;
     public int health;
     public int damage;
     public float moveSpeed;
     public float turnSpeed;
-    public string color;
     public List<Transform> spawnLocations;
+    public List<Transform> waypoints;
 }
