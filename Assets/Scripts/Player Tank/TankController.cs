@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,71 +10,84 @@ public class TankController
     internal TankService service;
 
     //declaring components
-    private Joystick leftJoystick;
-    private Rigidbody rb;
-    internal GameObject tankGameobject;
+    internal Rigidbody rb;
+    public static GameObject tankGameobject;
+    public AudioSource movementAudioSource;         // Reference to the audio source used to play engine sounds. NB: different to the shooting audio source.
 
     //declaring variables
     private float movementInput;
-    private float turnInput;
+    private float turnInput; 
+    public float audioPitchRange = 0.2f;           // The amount by which the pitch of the engine noises can vary.
+    private float originalAudioPitch;              // The pitch of the audio source at the start of the scene.
 
     public TankController(TankModel tankModel, TankView tankView)
     {
         model = tankModel;
         view = GameObject.Instantiate<TankView>(tankView);
         tankGameobject = view.gameObject;
+
+        rb = tankGameobject.GetComponent<Rigidbody>();
+        movementAudioSource = tankGameobject.GetComponent<AudioSource>();
+        originalAudioPitch = movementAudioSource.pitch;
     }
 
-    internal void awakeTankController()
+    public void start()
     {
 
     }
 
-    internal void startTankController()
-    {
-        rb = view.GetComponent<Rigidbody>();
-    }
-
-    internal void updateTankController()
+    public void update()
     {
         getInput();
+/*        engineAudio();*/
     }
 
-    internal void fixedUpdateTankController()
+    public void fixedUpdate()
     {
         move();
         turn();
     }
 
     //Tank Movement Code
-
-    internal void setJoystickRef(Joystick leftJoystick)
+    internal void getInput()
     {
-        this.leftJoystick = leftJoystick;
+        movementInput = Input.GetAxisRaw("Vertical");
+        turnInput = Input.GetAxisRaw("Horizontal");
     }
 
-    private void getInput()
-    {
-        movementInput = leftJoystick.Vertical;
-        turnInput = leftJoystick.Horizontal;
-    }
-
-    private void move()
+    internal void move()
     {
         Vector3 movement = view.transform.forward * movementInput * model.moveSpeed * Time.deltaTime;
         rb.MovePosition(rb.position + movement);
     }
 
-    private void turn()
+    internal void turn()
     {
         float turn = turnInput * model.turnSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         rb.MoveRotation(rb.rotation * turnRotation);
     }
 
-    //Tank Movement Code
-
-    //Tank Health Code
+    //Tank Audio code
+    private void engineAudio()
+    {
+        if (Mathf.Abs(movementInput) < 0.1f && Mathf.Abs(turnInput) < 0.1f)
+        {
+   
+            /*if(movementAudioSource == model.drivingClip)
+            {
+                movementAudioSource.clip = model.idlingClip;
+                movementAudioSource.pitch = UnityEngine.Random.Range(originalAudioPitch - audioPitchRange, originalAudioPitch + audioPitchRange);
+            }*/
+        }
+        else
+        {
+            /*if(movementAudioSource == model.idlingClip)
+            movementAudioSource.clip = model.drivingClip;
+            movementAudioSource.pitch = UnityEngine.Random.Range(originalAudioPitch - audioPitchRange, originalAudioPitch + audioPitchRange);*/
+        }
+        movementAudioSource.Play();
+    }
 
     internal float setMaxHealth()
     {

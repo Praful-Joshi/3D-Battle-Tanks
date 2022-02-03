@@ -6,7 +6,7 @@ public class EnemyModel
 {
     internal int id;
     internal GameObject enemyPrefab;
-    internal int health { get; }
+    internal float health { get; set; }
     internal int damage { get; }
     internal float moveSpeed { get; }
     internal float turnSpeed { get; }

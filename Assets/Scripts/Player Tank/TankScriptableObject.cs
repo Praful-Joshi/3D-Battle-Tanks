@@ -11,4 +11,6 @@ public class TankScriptableObject : ScriptableObject
     public float moveSpeed;
     public float turnSpeed;
     public string color;
+    public AudioClip idlingClip;
+    public AudioClip drivingClip;
 }

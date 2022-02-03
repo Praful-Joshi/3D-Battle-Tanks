@@ -17,6 +17,8 @@ MonoBehaviour:
   tankType: 2
   health: 100
   damage: 20
-  moveSpeed: 12
+  moveSpeed: 8
   turnSpeed: 180
   color: Green
+  idlingClip: {fileID: 8300000, guid: 4932ab25b84dd7649b80af68a9660ddc, type: 3}
+  drivingClip: {fileID: 8300000, guid: d7ca9fb5aa30155449192b23d7fb3336, type: 3}

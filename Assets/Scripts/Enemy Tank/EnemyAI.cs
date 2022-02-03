@@ -30,7 +30,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
-        target = TankService.tankController.tankGameobject.transform;
+        target = TankController.tankGameobject.transform;
 
         distanceToPlayer = Vector3.Distance(this.transform.position, target.position);
 
@@ -93,7 +93,6 @@ public class EnemyAI : MonoBehaviour
 
     private void patrol()
     {
-        Debug.Log("enemy patrolling");
         setDestination(targetWaypoint);
         if (Vector3.Distance(this.transform.position, targetWaypoint.position) < 1)
         {

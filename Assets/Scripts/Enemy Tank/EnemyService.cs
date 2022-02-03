@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyService : GenericSingleton<EnemyService>
 {
     //other scripts declaration
-    internal EnemyModel enemyModel;
+    internal static EnemyModel enemyModel;
     private EnemyController enemyController;
     private EnemySO enemyScriptableObject;
     public EnemySO[] enemySO;

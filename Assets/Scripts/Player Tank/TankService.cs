@@ -5,7 +5,7 @@ using UnityEngine;
 public class TankService : GenericSingleton<TankService>
 {
     //other scripts ref
-    internal TankModel model;
+    internal static TankModel model;
     internal static TankController tankController;
     private TankView view;
     public TankScriptableObject[] tankSO;
@@ -19,24 +19,23 @@ public class TankService : GenericSingleton<TankService>
 
     protected override void Awake()
     {
-        base.Awake();                                                           //singleton implementation    
-        createNewTank();                                                        //creates new tank
+        base.Awake();                                                           
+        createNewTank();                                                        
     }
 
     private void Start()
     {
-        setControllerJoystickRef();                                           //passing joystick reference to the controller
-        tankController.startTankController();
+        tankController.start();
     }
 
     private void Update()
     {
-        tankController.updateTankController();
+        tankController.update();
     }
 
     private void FixedUpdate()
     {
-        tankController.fixedUpdateTankController();
+        tankController.fixedUpdate();   
     }
 
     private void createNewTank()
@@ -48,16 +47,8 @@ public class TankService : GenericSingleton<TankService>
         Debug.Log(model.color + " tank created");
     }
 
-    private void setControllerJoystickRef()
-    {
-        if(tankController != null)
-        {
-            tankController.setJoystickRef(leftJoystick);
-        }
-    }
-
     public GameObject getTankControllerRef()
     {
-        return tankController.tankGameobject;
+        return TankController.tankGameobject;
     }
 }

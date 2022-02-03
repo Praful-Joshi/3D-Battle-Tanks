@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3738493640180679506}
   - component: {fileID: 3738493640183546632}
   - component: {fileID: 3738493640182579656}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3738493640180679510}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankRenderers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 3738493640180679512}
   - component: {fileID: 3738493640183546634}
   - component: {fileID: 3738493640182579658}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 3738493640180292055}
   - component: {fileID: -4885894985807717215}
   - component: {fileID: 273959800}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Enemy Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd998ab3bacc05428fc17c7e27e3e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 0}
 --- !u!195 &273959800
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -311,7 +310,7 @@ GameObject:
   - component: {fileID: 3738493640180679516}
   - component: {fileID: 3738493640183546626}
   - component: {fileID: 3738493640182579650}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +392,7 @@ GameObject:
   - component: {fileID: 3738493640180679518}
   - component: {fileID: 3738493640183546636}
   - component: {fileID: 3738493640182579660}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +474,7 @@ GameObject:
   - component: {fileID: 3738493641340184959}
   - component: {fileID: 3738493641321835655}
   - component: {fileID: 3738493641322430171}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left DustTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5246,7 +5245,7 @@ GameObject:
   - component: {fileID: 3738493641509086722}
   - component: {fileID: 3738493641490736122}
   - component: {fileID: 3738493641489101222}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right DustTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

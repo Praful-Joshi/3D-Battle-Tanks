@@ -4,23 +4,6 @@ using UnityEngine;
 
 public class TankView : MonoBehaviour
 {
-    private void Awake()
-    {
-        
-    }
 
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        
-    }
+    
 }
