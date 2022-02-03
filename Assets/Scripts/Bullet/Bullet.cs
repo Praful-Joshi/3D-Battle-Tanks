@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public static event Action attackedEnemy;
+
     public LayerMask tankMask;
     public AudioSource explosionAudioSource;
 
@@ -12,7 +14,6 @@ public class Bullet : MonoBehaviour
     public float explosionForce = 1000f;
     public float maxLifeTime = 2f;
     public float explosionRadius = 5f;
-    private int sourceId = 1;
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -31,6 +32,8 @@ public class Bullet : MonoBehaviour
             {
                 continue;
             }
+            Debug.Log(targetRigidbody);
+            attackedEnemy?.Invoke();
             targetRigidbody.AddExplosionForce(explosionForce, this.transform.position, explosionRadius);
             TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth>();
 
@@ -41,7 +44,7 @@ public class Bullet : MonoBehaviour
 
             float damage = calculateDamage(targetRigidbody.position);
             Debug.Log("Damage given - " + damage);
-            targetHealth.takeDamage(damage, sourceId);
+            targetHealth.takeDamage(damage);
         }
         explosionAudioSource.Play();
         BulletPool.instance.returnBullet(this.gameObject);

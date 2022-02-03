@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     {
         patrolling,
         chasing,
+        attacked,
         dead
     }
     //other script ref
@@ -29,6 +30,8 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Bullet.attackedEnemy += onAttackEnemy;
+
         agent = this.GetComponent<NavMeshAgent>();
         target = TankController.tankGameobject.transform;
 
@@ -57,8 +60,24 @@ public class EnemyAI : MonoBehaviour
             case state.dead:
                 dead();
                 break;
+            case state.attacked:
+                attacked();
+                break;
         }
         updateDistance();
+    }
+
+    private void onAttackEnemy()
+    {
+        Debug.Log("Enemy Under attack");
+        state previousState = currentState;
+        changeState(state.attacked);
+        changeState(previousState);
+    }
+
+    private IEnumerator attacked()
+    {
+        yield return new WaitForSeconds(2);
     }
 
     private void updateDistance()

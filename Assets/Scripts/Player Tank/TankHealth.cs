@@ -1,38 +1,58 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TankHealth : MonoBehaviour
 {
-    private void Start()
+    public Slider healthSlider;
+    public Image fillImage;
+    public Color fullHealthColor = Color.green, zeroHealthColor = Color.red;
+    public GameObject explosionPrefab;
+
+    private AudioSource explosionAudioSource;
+    private ParticleSystem explosionParticles;
+    private float currentHealth;
+    private float startingHealth;
+    private bool dead;
+
+    private void Awake()
     {
+        explosionParticles = Instantiate(explosionPrefab).GetComponent<ParticleSystem>();
+        explosionAudioSource = explosionParticles.GetComponent<AudioSource>();
+        explosionParticles.gameObject.SetActive(false);
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        
+        startingHealth = TankService.model.health;
+        currentHealth = startingHealth;
+        dead = false;
+        setHealthUI();
     }
 
-    public void takeDamage(float damage, int sourceId)
+    public void takeDamage(float damage)
     {
-        if(sourceId == 1) //bullet coming from an enemy tank
+        currentHealth -= damage;
+        setHealthUI();
+        if(currentHealth <= 0f && !dead)
         {
-            TankService.model.health -= damage;
-            Debug.Log("Player tank remaining health - " + TankService.model.health);
-            if (TankService.model.health <= 0)
-            {
-                Debug.Log("player tank died");
-            }
+            onDeath();
         }
-        else
-        {
-            EnemyService.enemyModel.health -= damage;
-            Debug.Log("Enemy tank remaining health - " + EnemyService.enemyModel.health);
-            if(EnemyService.enemyModel.health <= 0)
-            {
-                Debug.Log("Enemy tank died");
-            }
-        }
+    }
 
-        
+    private void onDeath()
+    {
+        dead = true;
+        explosionParticles.transform.position = this.transform.position;
+        explosionParticles.gameObject.SetActive(true);
+        explosionParticles.Play();
+        explosionAudioSource.Play();
+        gameObject.SetActive(false);
+    }
+
+    private void setHealthUI()
+    {
+        healthSlider.value = currentHealth;
+        fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, currentHealth / startingHealth);
     }
 }
