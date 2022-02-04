@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
             Debug.Log(targetRigidbody);
             attackedEnemy?.Invoke();
             targetRigidbody.AddExplosionForce(explosionForce, this.transform.position, explosionRadius);
-            TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth>();
+            EnemyHealth targetHealth = targetRigidbody.GetComponent<EnemyHealth>();
 
             if(!targetHealth)
             {
