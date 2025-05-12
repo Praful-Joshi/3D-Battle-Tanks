@@ -2,11 +2,11 @@
 
 A 3D tank combat game built with Unity, featuring player-controlled tanks, enemy AI, and object-oriented architecture.
 
-## Project Overview
+## ✨ Project Overview
 
 3D Battle Tanks is a tank combat simulation where players control a tank in a 3D environment, battling against AI-controlled enemy tanks. The game employs a Model-View-Controller (MVC) pattern along with service layers to create a modular, maintainable codebase.
 
-## Architecture & Design Patterns
+## 🎨 Architecture & Design Patterns
 
 ### MVC Pattern Implementation
 The game implements the Model-View-Controller (MVC) architectural pattern:
@@ -32,7 +32,7 @@ An object pool implementation for bullets to optimize performance:
 - Reduces garbage collection overhead
 - Improves performance during frequent shooting events
 
-## Core Systems
+## ⚒️ Core Systems
 
 ### Tank Movement System
 - Physics-based movement using Rigidbody
@@ -54,7 +54,7 @@ An object pool implementation for bullets to optimize performance:
 - Automatic zooming based on target positions
 - Smooth damping for camera movements
 
-## Data Management
+## 📒 Data Management
 
 ### ScriptableObjects
 Game entities are configured through ScriptableObjects:
@@ -66,7 +66,7 @@ Game entities are configured through ScriptableObjects:
 The game uses a simple event system for communication between components:
 - Example: `Bullet.attackedEnemy` event for notifying when an enemy is hit
 
-## Gameplay Elements
+## 🎮 Gameplay Elements
 
 ### Player Controls
 - WASD/Arrow keys for tank movement
@@ -83,7 +83,7 @@ The game uses a simple event system for communication between components:
 - Different sound effects for movement, shooting, and explosions
 - Audio pitch variations for more natural sound
 
-## Technical Implementation Details
+## ⚛️ Technical Implementation Details
 
 ### Physics Implementation
 - Rigidbody-based movement for realistic physics
@@ -106,7 +106,7 @@ The codebase is organized into logical folders:
 - **Singleton**: Pattern implementation
 - **UI**: User interface elements
 
-## Setup and Configuration
+## 🧱 Setup and Configuration
 
 ### Requirements
 - Unity 2019.4 or higher
@@ -119,7 +119,7 @@ The codebase is organized into logical folders:
 4. Configure tank properties through ScriptableObjects in the Inspector
 5. Press Play to test the game
 
-## Future Development
+## 🗓️ Future Development
 
 Potential areas for expansion and improvement:
 - Multiplayer support
@@ -146,7 +146,7 @@ Potential areas for expansion and improvement:
 ---
 
 ## Contributors
-- [Your Name]
+- Praful Joshi
 
 ## License
-[Specify License]
+This project is licensed under the MIT License – feel free to modify and build upon it after making a fork.
