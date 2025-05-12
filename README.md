@@ -6,6 +6,18 @@ A 3D tank combat game built with Unity, featuring player-controlled tanks, enemy
 
 3D Battle Tanks is a tank combat simulation where players control a tank in a 3D environment, battling against AI-controlled enemy tanks. The game employs a Model-View-Controller (MVC) pattern along with service layers to create a modular, maintainable codebase.
 
+## 🧱 Setup and Configuration
+
+### Requirements
+- Unity 2019.4 or higher
+- Basic understanding of Unity's component system
+
+### Getting Started
+1. Clone the repository
+2. Open the project in Unity
+3. Open the game scene
+5. Press Play to test the game
+
 ## 🎨 Architecture & Design Patterns
 
 ### MVC Pattern Implementation
@@ -105,19 +117,6 @@ The codebase is organized into logical folders:
 - **Manager**: Game state coordination
 - **Singleton**: Pattern implementation
 - **UI**: User interface elements
-
-## 🧱 Setup and Configuration
-
-### Requirements
-- Unity 2019.4 or higher
-- Basic understanding of Unity's component system
-
-### Getting Started
-1. Clone the repository
-2. Open the project in Unity
-3. Open the main scene
-4. Configure tank properties through ScriptableObjects in the Inspector
-5. Press Play to test the game
 
 ## 🗓️ Future Development
 
